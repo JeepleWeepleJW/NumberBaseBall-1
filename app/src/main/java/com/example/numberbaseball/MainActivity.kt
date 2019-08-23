@@ -14,14 +14,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        init()
+        randomTest()
     }
 
-    fun init() {
+    /**
+     * 랜덤 메소드 테스트
+     */
+    private fun randomTest() {
         val logger = Logger.getLogger(MainActivity::class.java.name)
         val randomValue = (1..9).random()
         logger.info("random value $randomValue")
-        textTT.text = randomValue.toString()
+        tvRandomText.text = randomValue.toString()
 
     }
 
