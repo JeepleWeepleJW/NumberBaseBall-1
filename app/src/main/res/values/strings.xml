@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NumberBaseBall</string>
+
+    <!-- MainActivity-->
+    <string name="main_activity_random_number_ready">"?"</string>
+    <string name="main_activity_get_random_text">랜덤 숫자 뽑기</string>
 </resources>

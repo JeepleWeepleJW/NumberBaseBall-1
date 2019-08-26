@@ -3,23 +3,24 @@ package com.example.numberbaseball
 import android.os.Bundle
 import com.example.numberbaseball.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.logging.Logger
 
 class MainActivity : BaseActivity(R.layout.activity_main) {
 
-    private val logger = Logger.getLogger(MainActivity::class.java.name)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewInit()
+        initView()
+    }
+
+    private fun initView() {
+        // 버튼 클릭 시 숫자를 랜덤하게 보여줌
+        btn_get_random_number.setOnClickListener {
+            tv_random_number.text = getRandomNumber()
+        }
     }
 
     /**
-     * 뷰 초기화
+     * Single-expression functions
+     * 1~9 사이의 랜덤숫자를 반환
      */
-    private fun viewInit() {
-        val randomValue = (1..9).random()
-        logger.info("random value $randomValue")
-        tv_random_number.text = randomValue.toString()
-    }
+    private fun getRandomNumber(): String = (1..9).random().toString()
 }
