@@ -20,7 +20,8 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     /**
      * Single-expression functions
-     * 1~9 사이의 랜덤숫자를 반환
+     * (n..m).random 은 n 부터 m 까지의 랜덤한 숫자를 반환
+     * 따라서 1~9 사이의 랜덤숫자를 반환
      */
     private fun getRandomNumber(): String = (1..9).random().toString()
 }
