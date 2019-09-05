@@ -23,36 +23,21 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
      * 숫자 야구때 사용할 번호 세팅
      */
     private fun initBaseballNumber(): String {
-        val randomList = mutableListOf("-1", "-1", "-1")
-        var checkCount = 0
+
+        val numberMap = mutableMapOf<Int, Int>()
 
         while (true) {
             val randomTemp = getRandomNumber()
-            // 중복 유무 체크
-            var notOverlap = false
+            numberMap[randomTemp] = randomTemp
 
-            for (x in 0..2) {
-                if (randomList[x] == randomTemp) {
-                    notOverlap = false
-                    break
-                } else {
-                    notOverlap = true
-                }
-            }
+            println("numberMap 데이터 : " + numberMap.values)
 
-            if (notOverlap) {
-                randomList[checkCount] = randomTemp
-                checkCount++
-            }
-
-            println("랜덤 리스트값 : $randomList")
-
-            if (checkCount >= 3) {
+            if (numberMap.size == 3) {
                 break
             }
         }
 
-        return randomList.toString()
+        return numberMap.values.toString()
 
     }
 
@@ -61,5 +46,5 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
      * (n..m).random 은 n 부터 m 까지의 랜덤한 숫자를 반환
      * 따라서 1~9 사이의 랜덤숫자를 반환
      */
-    private fun getRandomNumber(): String = (1..9).random().toString()
+    private fun getRandomNumber(): Int = (1..9).random()
 }
