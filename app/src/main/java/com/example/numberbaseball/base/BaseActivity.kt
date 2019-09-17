@@ -17,11 +17,11 @@ abstract class BaseActivity(
         setContentView(layoutId)
     }
 
-    public fun toast(context: Context, msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+    protected fun @receiver:StringRes Int.toast(context: Context){
+        getString(this).toast(context)
     }
 
-    public fun toast(context: Context, @StringRes msg: Int) {
-        toast(context, getString(msg))
+    protected fun String.toast(context: Context) {
+        Toast.makeText(context, this, Toast.LENGTH_LONG).show()
     }
 }

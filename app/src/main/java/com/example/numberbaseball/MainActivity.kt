@@ -26,8 +26,8 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     private fun checkNumberBaseBallAnswer() {
         val checkInputNumber = et_input_number_baseball_answer.text.toString()
         when {
-            checkInputNumber == "" -> toast(this, R.string.main_activity_please_input_data)
-            checkInputNumber.length != 3 -> toast(this, R.string.main_activity_please_input_three_number)
+            checkInputNumber.isBlank() -> R.string.main_activity_please_input_data.toast(this)
+            checkInputNumber.length != 3 -> R.string.main_activity_please_input_three_number.toast(this)
             else -> Timber.d("입력한 값 : $checkInputNumber")
         }
     }

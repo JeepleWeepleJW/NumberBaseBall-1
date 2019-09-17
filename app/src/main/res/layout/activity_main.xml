@@ -6,6 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/et_input_one_answer"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_activity_input_number_baseball_answer"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:nextFocusDown="@id/et_input_two_answer"
+            android:textAlignment="center"
+            tools:targetApi="o"
+            tools:text="1" />
+
+        <EditText
+            android:id="@+id/et_input_two_answer"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_activity_input_number_baseball_answer"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:nextFocusDown="@id/et_input_three_answer"
+            android:textAlignment="center"
+            tools:targetApi="o" />
+
+        <EditText
+            android:id="@+id/et_input_three_answer"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_activity_input_number_baseball_answer"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textAlignment="center"
+            tools:targetApi="o" />
+
+    </LinearLayout>
+
     <EditText
         android:id="@+id/et_input_number_baseball_answer"
         android:layout_width="match_parent"
@@ -14,15 +61,15 @@
         android:importantForAutofill="no"
         android:inputType="number"
         android:maxLength="3"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll"
         tools:targetApi="o" />
 
     <Button
         android:id="@+id/btn_check_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/et_input_number_baseball_answer"
-        android:text="정답 체크"/>
+        android:text="정답 체크"
+        app:layout_constraintTop_toBottomOf="@id/et_input_number_baseball_answer" />
 
     <TextView
         android:id="@+id/tv_random_number"
