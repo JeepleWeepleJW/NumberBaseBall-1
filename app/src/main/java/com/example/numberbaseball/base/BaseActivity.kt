@@ -21,7 +21,7 @@ abstract class BaseActivity(
         getString(this).toast(context)
     }
 
-    protected fun String.toast(context: Context) {
+    private fun String.toast(context: Context) {
         Toast.makeText(context, this, Toast.LENGTH_LONG).show()
     }
 }
