@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/ll"
+        android:id="@+id/ll_input_baseball_number_group"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:gravity="center"
@@ -65,7 +65,7 @@
         android:maxLength="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll"
+        app:layout_constraintTop_toBottomOf="@id/ll_input_baseball_number"
         tools:targetApi="o" />
 
     <Button
