@@ -24,12 +24,20 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     }
 
     private fun checkNumberBaseBallAnswer() {
-        val checkInputNumber = et_input_number_baseball_answer.text.toString()
-        when {
-            checkInputNumber.isBlank() -> R.string.main_activity_please_input_data.toast()
-            checkInputNumber.length != 3 -> R.string.main_activity_please_input_three_number.toast()
-            else -> Timber.d("입력한 값 : $checkInputNumber")
-        }
+        val inputAnswerMap = mutableMapOf<Int, Int>()
+        val oneAnswer = et_input_one_answer.text.toString().toInt()
+        val twoAnswer = et_input_two_answer.text.toString().toInt()
+        val threeAnswer = et_input_three_answer.text.toString().toInt()
+        inputAnswerMap[oneAnswer] = oneAnswer
+        inputAnswerMap[twoAnswer] = twoAnswer
+        inputAnswerMap[threeAnswer] = threeAnswer
+
+//        val checkInputNumber = et_input_number_baseball_answer.text.toString()
+//        when {
+//            checkInputNumber.isBlank() -> R.string.main_activity_please_input_data.toast()
+//            checkInputNumber.length != 3 -> R.string.main_activity_please_input_three_number.toast()
+//            else -> Timber.d("입력한 값 : $checkInputNumber")
+//        }
     }
 
     /**

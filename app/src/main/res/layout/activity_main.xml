@@ -55,19 +55,6 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/et_input_number_baseball_answer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/main_activity_input_number_baseball_answer"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:maxLength="3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_input_baseball_number_group"
-        tools:targetApi="o" />
-
     <Button
         android:id="@+id/btn_check_answer"
         android:layout_width="0dp"
@@ -75,7 +62,7 @@
         android:text="@string/main_activity_check_baseball_number_answer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_input_number_baseball_answer" />
+        app:layout_constraintTop_toBottomOf="@id/ll_input_baseball_number_group" />
 
     <TextView
         android:id="@+id/tv_random_number"
