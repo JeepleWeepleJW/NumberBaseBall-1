@@ -1,6 +1,5 @@
 package com.example.numberbaseball.base
 
-import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.LayoutRes
@@ -17,11 +16,11 @@ abstract class BaseActivity(
         setContentView(layoutId)
     }
 
-    protected fun @receiver:StringRes Int.toast(context: Context){
-        getString(this).toast(context)
+    protected fun @receiver:StringRes Int.toast() {
+        getString(this).toast()
     }
 
-    private fun String.toast(context: Context) {
-        Toast.makeText(context, this, Toast.LENGTH_LONG).show()
+    private fun String.toast() {
+        Toast.makeText(this@BaseActivity, this, Toast.LENGTH_LONG).show()
     }
 }
