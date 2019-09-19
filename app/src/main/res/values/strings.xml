@@ -6,6 +6,7 @@
     <string name="main_activity_get_random_text">랜덤 숫자 뽑기</string>
     <string name="main_activity_input_number_baseball_hint">"?"</string>
     <string name="main_activity_please_input_three_number">3자리를 입력해 주세요.</string>
+    <string name="main_activity_please_input_numbers_not_overlap">중복되지 않는 숫자를 입력해 주세요.</string>
     <string name="main_activity_please_input_data">값을 입력해 주세요.</string>
     <string name="main_activity_check_baseball_number_answer">정답 체크</string>
 </resources>

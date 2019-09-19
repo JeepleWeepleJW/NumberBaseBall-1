@@ -24,20 +24,24 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     }
 
     private fun checkNumberBaseBallAnswer() {
-        val inputAnswerMap = mutableMapOf<Int, Int>()
-        val oneAnswer = et_input_one_answer.text.toString().toInt()
-        val twoAnswer = et_input_two_answer.text.toString().toInt()
-        val threeAnswer = et_input_three_answer.text.toString().toInt()
-        inputAnswerMap[oneAnswer] = oneAnswer
-        inputAnswerMap[twoAnswer] = twoAnswer
-        inputAnswerMap[threeAnswer] = threeAnswer
+        val inputAnswerSet = mutableSetOf<Int>()
+        val oneAnswer = et_input_one_answer.text.toString()
+        val twoAnswer = et_input_two_answer.text.toString()
+        val threeAnswer = et_input_three_answer.text.toString()
 
-//        val checkInputNumber = et_input_number_baseball_answer.text.toString()
-//        when {
-//            checkInputNumber.isBlank() -> R.string.main_activity_please_input_data.toast()
-//            checkInputNumber.length != 3 -> R.string.main_activity_please_input_three_number.toast()
-//            else -> Timber.d("입력한 값 : $checkInputNumber")
-//        }
+        if (oneAnswer.isBlank() || twoAnswer.isBlank() || threeAnswer.isBlank()) {
+            toast(R.string.main_activity_please_input_three_number)
+        } else {
+            inputAnswerSet.add(oneAnswer.toInt())
+            inputAnswerSet.add(twoAnswer.toInt())
+            inputAnswerSet.add(threeAnswer.toInt())
+
+            if (inputAnswerSet.size == 3) {
+
+            } else {
+                toast(R.string.main_activity_please_input_numbers_not_overlap)
+            }
+        }
     }
 
     /**
@@ -45,20 +49,19 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
      */
     private fun getBaseballNumber(): String {
 
-        val numberMap = mutableMapOf<Int, Int>()
+        val numberSet = mutableSetOf<Int>()
 
         while (true) {
             // (n..m).random 은 1 부터 9 까지의 랜덤한 숫자를 반환
             val randomTemp = (1..9).random()
-            numberMap[randomTemp] = randomTemp
+            numberSet.add(randomTemp)
 
-            if (numberMap.size == 3) {
+            if (numberSet.size == 3) {
                 break
             }
         }
 
-        Timber.d("숫자 야구 숫자 : ${numberMap.values}")
-        return numberMap.values.toString()
+        return numberSet.toString()
 
     }
 
