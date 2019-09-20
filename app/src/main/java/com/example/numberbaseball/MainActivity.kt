@@ -7,6 +7,8 @@ import timber.log.Timber
 
 class MainActivity : BaseActivity(R.layout.activity_main) {
 
+    private var answerList = listOf<Int>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
@@ -15,7 +17,8 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     private fun initView() {
         // 버튼 클릭 시 숫자를 랜덤하게 보여줌
         btn_get_random_number.setOnClickListener {
-            tv_random_number.text = getBaseballNumber()
+            answerList = getBaseballNumber()
+            tv_random_number.text = answerList.toString()
         }
 
         btn_check_answer.setOnClickListener {
@@ -37,7 +40,20 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
             inputAnswerSet.add(threeAnswer.toInt())
 
             if (inputAnswerSet.size == 3) {
-
+                for (x in 0 until answerList.size) {
+                    for (y in 0 until inputAnswerSet.size) {
+                        if (answerList[x] == inputAnswerSet.distinct()[y]) {
+                            if (x==y) {
+                                Timber.d("스트라이크")
+                            } else {
+                                Timber.d("볼")
+                            }
+                            break
+                        } else {
+                            Timber.d("아웃")
+                        }
+                    }
+                }
             } else {
                 toast(R.string.main_activity_please_input_numbers_not_overlap)
             }
@@ -47,7 +63,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     /**
      * 숫자 야구때 사용할 번호 반환
      */
-    private fun getBaseballNumber(): String {
+    private fun getBaseballNumber(): List<Int> {
 
         val numberSet = mutableSetOf<Int>()
 
@@ -61,7 +77,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
             }
         }
 
-        return numberSet.toString()
+        return numberSet.distinct()
 
     }
 
